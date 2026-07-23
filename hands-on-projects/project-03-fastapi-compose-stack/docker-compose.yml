@@ -1,0 +1,9 @@
+services:
+  fastapi:
+    image: project-03-fastapi
+
+    container_name: project-03-fastapi-cont
+
+    ports:
+      - "8000:8000"
+  
