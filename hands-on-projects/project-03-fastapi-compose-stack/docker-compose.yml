@@ -1,9 +1,32 @@
 services:
   fastapi:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
     image: project-03-fastapi
 
     container_name: project-03-fastapi-cont
 
     ports:
       - "8000:8000"
+
+  postgres:
+    image: postgres:16
+
+    container_name: project-03-postgres
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: fastapi_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
   
